@@ -1,6 +1,6 @@
-from django.http import Http404
 from django.contrib.auth import get_user_model
-from rest_framework.permissions import BasePermission, SAFE_METHODS
+from django.http import Http404
+from rest_framework.permissions import SAFE_METHODS, BasePermission
 
 User = get_user_model()
 

@@ -1,6 +1,6 @@
 from import_export import fields, resources, widgets
 
-from .models import Review, Comment, Title, Genre, TitleGenre
+from .models import Comment, Genre, Review, Title, TitleGenre
 
 
 class TitleGenreResource(resources.ModelResource):

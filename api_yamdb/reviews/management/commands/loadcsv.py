@@ -1,7 +1,6 @@
 from django.apps import apps
 from django.core.management.base import BaseCommand
 from django.utils.module_loading import import_string
-
 from import_export.formats import base_formats
 from import_export.resources import modelresource_factory
 

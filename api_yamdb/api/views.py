@@ -3,26 +3,19 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.http import Http404
 from django.shortcuts import get_object_or_404
-from rest_framework import (viewsets,
-                            permissions,
-                            pagination,
-                            filters,
-                            mixins,
-                            status)
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import (filters, mixins, pagination, permissions, status,
+                            viewsets)
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
+from reviews.models import Category, Genre, Review, Title
 
-from django_filters.rest_framework import DjangoFilterBackend
-
-from .filters import TitleFilter
-from .permissions import (IsAuthorOrReadOnly,
-                          IsAdminUserOrReadOnly,
-                          IsModeratorOrReadOnly,
-                          IsUserOrReadOnly,
-                          IsAdminUser)
 from . import serializers
-from reviews.models import Review, Title, Category, Genre
+from .filters import TitleFilter
+from .permissions import (IsAdminUser, IsAdminUserOrReadOnly,
+                          IsAuthorOrReadOnly, IsModeratorOrReadOnly,
+                          IsUserOrReadOnly)
 
 
 class MixinSet(
@@ -65,8 +58,8 @@ class ReviewViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         title_id = self.kwargs.get('title_id')
         title = get_object_or_404(Title, pk=title_id)
-        queryset = title.reviews.all()
-        return queryset
+        # queryset = title.reviews.all()
+        return title.reviews.all()
 
     def perform_create(self, serializer):
         title_id = self.kwargs.get('title_id')
@@ -85,8 +78,8 @@ class CommentViewSet(viewsets.ModelViewSet):
         title_id = self.kwargs.get('title_id')
         review_id = self.kwargs.get('review_id')
         review = get_object_or_404(Review, pk=review_id, title__id=title_id)
-        queryset = review.comments.all()
-        return queryset
+        # queryset = review.comments.all()
+        return review.comments.all()
 
     def perform_create(self, serializer):
         title_id = self.kwargs.get('title_id')
