@@ -1,6 +1,6 @@
 # REST API интерфейс для проекта YaMDb™
 
-![example workflow](https://github.com/github/docs/actions/workflows/yamdb_workflow.yml/badge.svg)
+![api-yamdb workflow](https://github.com/ayavrik/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ### Описание
 
