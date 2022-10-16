@@ -18,8 +18,8 @@
 Клонируйте репозиторий и перейдите в папку с проектом.
 
 ```bash
-$ git clone https://github.com/ayavrik/infra_sp2.git
-$ cd infra_sp2
+$ git clone https://github.com/ayavrik/yamdb_final.git
+$ cd yamdb_final
 ```
 
 Создайте `.env` файл с параметрами подключения к БД в директории `infra`
