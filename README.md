@@ -5,7 +5,7 @@
 ### Описание
 
 Учебный проект YaMDb - приложение, где пользователи могут оставить отзыв и оценить
-произведение.
+произведение. Проект можно посмотреть по ссылке: https://freeyamdb.ddns.net/
 
 ### Технологии
 
@@ -31,6 +31,7 @@ POSTGRES_USER=username
 POSTGRES_PASSWORD=password
 DB_HOST=db
 DB_PORT=5432
+SECRET_KEY=django secret key
 ```
 
 Для сборки контейнеров и запуска всех сервисов (Django, Postgres, Nginx)
